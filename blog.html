@@ -11,6 +11,8 @@
             --accent: #ff9500;
             --light: #f8f8f8;
             --dark: #1a1a1a;
+            --gray: #e0e0e0;
+            --dark-gray: #777;
         }
         
         body {
@@ -132,6 +134,7 @@
                 margin: 0.3rem 0;
             }
         }
+        
         main {
             padding: 2rem;
             max-width: 1200px;
@@ -144,6 +147,10 @@
             padding: 2rem;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--secondary);
         }
         
         h3 {
@@ -200,26 +207,6 @@
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
-        main {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section {
-            margin-bottom: 3rem;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
         
         .video-simples {
             margin-bottom: 2rem;
@@ -248,26 +235,6 @@
             font-size: 0.9rem;
             display: flex;
             gap: 1rem;
-        }
-        main {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section {
-            margin-bottom: 3rem;
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
         }
         
         .coconut-ranking {
@@ -331,6 +298,109 @@
             border: 2px solid #ddd;
         }
         
+        /* Estilos do formulário */
+        form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+        
+        form div {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray);
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        button[type="submit"] {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+        
+        .warning-box {
+            background-color: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            form {
+                padding: 0 1rem;
+            }
+            
+            .coconut-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .coconut-image {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                height: auto;
+                max-height: 200px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -354,23 +424,24 @@
             </ul>
         </nav>
     </header>
+    
     <main>
-        <main>
-            <section id="videos">
-                <h3>Vídeo Mais Recente</h3>
-                
-                <div class="video-simples">
-                    <video controls width="100%">
-                        <source src="video/videoplayback.mp4" type="video/mp4">
-                    </video>
-                    <p class="video-descricao">VENEZUELA - É UM PESADELO TENTAR SAIR DESSE PAÍS FALIDO</p>
-                    <div class="video-stats">
-                        <span><i class="fas fa-eye"></i> 11M visualizações</span>
-                        <span><i class="fas fa-clock"></i> 1h3 / dia</span>
-                    </div>
+        <section id="videos">
+            <h3>Vídeo Mais Recente</h3>
+            
+            <div class="video-simples">
+                <video controls width="100%" poster="img/88.png"/>
+                    <source src="video/videoplayback.mp4" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <p class="video-descricao">VENEZUELA - É UM PESADELO TENTAR SAIR DESSE PAÍS FALIDO</p>
+                <div class="video-stats">
+                    <span><i class="fas fa-eye"></i> 11M visualizações</span>
+                    <span><i class="fas fa-clock"></i> 1h3 / dia</span>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
+        
         <section id="galeria">
             <h3>Galeria de Fotos das Viagens</h3>
             <p>Registros marcantes das minhas aventuras pelo mundo:</p>
@@ -396,7 +467,6 @@
                     <div class="gallery-caption">Egito</div>
                 </div>
             </div>
-            
         </section>
 
         <section id="venezuela">
@@ -425,6 +495,31 @@
                 </ul>
             </article>
         </section>
+
+        <section id="africa">
+            <h3>Aventuras na África</h3>
+            
+            <article>
+                <h4>Cabo Verde - A África que não te mostram</h4>
+                <p>Minha experiência em Cabo Verde foi cheia de contrastes. Por trás das belas praias e resorts turísticos, existe uma realidade muito diferente nas comunidades locais.</p>
+                
+                <div class="video-simples">
+                    <video controls width="100%" poster="img/89.png">
+                        <source src="video/videoplayback2.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <p class="video-descricao">CHEGUEI EM CABO VERDE E TIVE QUE PASSAR POR ISSO</p>
+                    <div class="video-stats">
+                        <span><i class="fas fa-eye"></i> 24M visualizações</span>
+                        <span><i class="fas fa-clock"></i> 2 meses</span>
+                    </div>
+                </div>
+                
+                <h4>Marrocos - Golpes e armadilhas</h4>
+                <p>No Marrocos, precisei aprender rápido como identificar e evitar os diversos golpes aplicados em turistas. Desde taxistas até guias "falsos", a criatividade para enganar visitantes é infinita.</p>
+            </article>
+        </section>
+        
         <section id="coconut">
             <h3>Ranking das Melhores Águas de Coco do Mundo</h3>
             <p>Depois de provar centenas de águas de coco em minhas viagens, criei este ranking definitivo com as melhores que encontrei:</p>
@@ -439,7 +534,7 @@
                         </div>
                         <div class="coconut-review">Doce naturalmente, cremosa e refrescante. Os cocos são colhidos na hora e servidos com canudo de bambu.</div>
                     </div>
-                    <img src="img/" alt="Água de coco em Bali" class="coconut-image">
+                    <img src="img/Perfect drink.jpeg" alt="Água de coco em Bali" class="coconut-image">
                 </div>
                 
                 <div class="coconut-item">
@@ -451,7 +546,7 @@
                         </div>
                         <div class="coconut-review">Extremamente doce e abundante. Melhor quando consumida diretamente na praia após mergulho.</div>
                     </div>
-                    <img src="https://example.com/coconut-noronha.jpg" alt="Água de coco em Noronha" class="coconut-image">
+                    <img src="img/_ (4).jpeg" alt="Água de coco em Noronha" class="coconut-image">
                 </div>
                 
                 <div class="coconut-item">
@@ -463,7 +558,7 @@
                         </div>
                         <div class="coconut-review">Sabor único com notas florais. Os locais adicionam um pouco de calamansi (fruta cítrica local) para equilibrar a doçura.</div>
                     </div>
-                    <img src="https://example.com/coconut-siargao.jpg" alt="Água de coco em Siargao" class="coconut-image">
+                    <img src="img/_ (5).jpeg" alt="Água de coco em Siargao" class="coconut-image">
                 </div>
                 
                 <div class="coconut-item">
@@ -475,7 +570,7 @@
                         </div>
                         <div class="coconut-review">Cocos enormes com quantidade generosa de água levemente adocicada e muito refrescante.</div>
                     </div>
-                    <img src="https://example.com/coconut-zanzibar.jpg" alt="Água de coco em Zanzibar" class="coconut-image">
+                    <img src="img/download.jpeg" alt="Água de coco em Zanzibar" class="coconut-image">
                 </div>
                 
                 <div class="coconut-item">
@@ -487,7 +582,7 @@
                         </div>
                         <div class="coconut-review">Sabor terroso único. Tradicionalmente servida em coco verde com a polpa raspada para dentro.</div>
                     </div>
-                    <img src="https://example.com/coconut-kerala.jpg" alt="Água de coco em Kerala" class="coconut-image">
+                    <img src="img/_ (6).jpeg" alt="Água de coco em Kerala" class="coconut-image">
                 </div>
             </div>
             
@@ -500,6 +595,7 @@
                 <li><strong>Disponibilidade</strong> e acesso</li>
             </ul>
         </section>
+        
         <section id="contato">
             <h3>Fale com o @andrenomaderaiz</h3>
             <p>Quer sugerir um destino extremo? Tem perguntas sobre minhas aventuras? Envie sua mensagem!</p>
@@ -517,7 +613,7 @@
                 
                 <div>
                     <label for="assunto">Assunto:</label>
-                    <select id="assunto" name="assunto">
+                    <select id="assunto" name="assunto" required>
                         <option value="">Selecione...</option>
                         <option value="dica">Dica de Viagem</option>
                         <option value="pergunta">Pergunta sobre Vídeo</option>
@@ -531,19 +627,20 @@
                     <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
                 </div>
                 
-                <button type="submit"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+                <button type="submit"></i> Enviar Mensagem</button>
             </form>
         </section>
     </main>
+    
     <footer>
         <p>© 2023 @andrenomaderaiz - Todos os direitos reservados</p>
         <p>Conteúdo autêntico sobre viagens extremas e experiências reais</p>
         
         <div class="social-links">
-            <a href="https://youtube.com/andrenomaderaiz" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://instagram.com/andrenomaderaiz" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com/@andrenomaderaiz" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://twitter.com/andrenomaderaiz" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/andrenomaderaiz" title="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/andrenomaderaiz" title="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@andrenomaderaiz" title="TikTok" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+            <a href="https://twitter.com/andrenomaderaiz" title="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
         </div>
     </footer>
 </body>
