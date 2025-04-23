@@ -200,12 +200,56 @@
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
-        
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        
+        .video-simples {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .video-simples video {
+            width: 100%;
+            display: block;
+            background: #000;
+        }
+        
+        .video-descricao {
+            font-weight: bold;
+            padding: 1rem 1rem 0;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .video-stats {
+            padding: 0 1rem 1rem;
+            color: #666;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -230,6 +274,22 @@
         </nav>
     </header>
     <main>
+        <main>
+            <section id="videos">
+                <h3>Vídeo Mais Recente</h3>
+                
+                <div class="video-simples">
+                    <video controls width="100%">
+                        <source src="video/videoplayback.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-descricao">VENEZUELA - É UM PESADELO TENTAR SAIR DESSE PAÍS FALIDO</p>
+                    <div class="video-stats">
+                        <span><i class="fas fa-eye"></i> 11M visualizações</span>
+                        <span><i class="fas fa-clock"></i> 1h3 / dia</span>
+                    </div>
+                </div>
+            </section>
+        </main>
         <section id="galeria">
             <h3>Galeria de Fotos das Viagens</h3>
             <p>Registros marcantes das minhas aventuras pelo mundo:</p>
